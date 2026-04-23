@@ -466,13 +466,117 @@
   .search-box:focus { width: 250px; }
 }
 
-@media (max-width: 600px) {
-  .products-grid-listing { grid-template-columns: 1fr; }
-  .listing-header { flex-direction: column; align-items: flex-start; }
-  .search-box { width: 100%; }
-  .search-box:focus { width: 100%; }
-  .page-hero { height: 260px; }
-  .page-hero-content h1 { font-size: 22px; }
-  .categories-row { flex-direction: column; align-items: center; }
-  .cat-card { min-width: 280px; }
+@media (max-width: 768px) {
+  .products-listing {
+    padding: 40px 0 60px;
+  }
+
+  .products-grid-listing {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .listing-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-box:focus {
+    width: 100%;
+  }
+
+  .page-hero {
+    height: 240px;
+  }
+
+  .page-hero-content h1 {
+    font-size: clamp(18px, 5vw, 28px);
+    gap: 8px;
+  }
+
+  .page-hero-content p {
+    font-size: 13px;
+  }
+
+  /* Always show zoom button on touch devices */
+  .plc-zoom {
+    opacity: 1;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .plc-img-wrap {
+    height: 160px;
+  }
+
+  .plc-info {
+    padding: 14px 14px 16px;
+  }
+
+  .plc-info h3 {
+    font-size: 13px;
+  }
+
+  .plc-info p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .other-categories {
+    padding: 48px 0;
+  }
+
+  .other-categories h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .categories-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cat-card {
+    min-width: unset;
+    width: 100%;
+    max-width: 320px;
+    padding: 24px 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .products-grid-listing {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .plc-img-wrap {
+    height: 140px;
+  }
+
+  .plc-info h3 {
+    font-size: 12px;
+  }
+
+  .btn-inquire {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .page-hero {
+    height: 200px;
+  }
+
+  .page-hero-content {
+    padding-bottom: 24px;
+  }
+
+  .breadcrumb {
+    font-size: 11px;
+  }
 }

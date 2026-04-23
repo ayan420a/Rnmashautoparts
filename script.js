@@ -113,13 +113,31 @@ function handleSubmit(e) {
   const btn     = document.getElementById('submit-btn');
   const success = document.getElementById('form-success');
 
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const product = document.getElementById('product');
+  const productLabel = product.options[product.selectedIndex].text;
+  const message = document.getElementById('message').value.trim();
 
-  // Simulate API call
+  const waText =
+    `Hello RN MASH INTERNATIONAL,%0A%0A` +
+    `I would like to send an enquiry:%0A%0A` +
+    `👤 *Name:* ${encodeURIComponent(name)}%0A` +
+    `📧 *Email:* ${encodeURIComponent(email)}%0A` +
+    `📞 *Phone:* ${encodeURIComponent(phone || 'Not provided')}%0A` +
+    `🔩 *Product:* ${encodeURIComponent(productLabel === '-- Select a product category --' ? 'Not specified' : productLabel)}%0A%0A` +
+    `💬 *Message:*%0A${encodeURIComponent(message)}%0A%0A` +
+    `Thank you.`;
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+
   setTimeout(() => {
-    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-    btn.style.background = '#10b981';
+    window.open(`https://wa.me/919358626868?text=${waText}`, '_blank');
+
+    btn.innerHTML = '<i class="fas fa-check"></i> Sent via WhatsApp!';
+    btn.style.background = '#25d366';
     success.classList.add('show');
     e.target.reset();
 
@@ -129,7 +147,7 @@ function handleSubmit(e) {
       btn.style.background = '';
       success.classList.remove('show');
     }, 4000);
-  }, 1500);
+  }, 800);
 }
 
 // =============================================
